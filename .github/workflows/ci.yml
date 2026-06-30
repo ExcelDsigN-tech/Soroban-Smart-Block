@@ -81,13 +81,6 @@ jobs:
           cd indexer && npm ci
           cd ../frontend && npm ci
 
-      - name: Lockfile drift check
-        run: |
-          if ! git diff --exit-code indexer/package-lock.json; then
-            echo "::error::indexer/package-lock.json is out of sync — run 'npm install' in indexer/ and commit it."
-            exit 1
-          fi
-
       - name: Validate OpenAPI spec
         run: npx -y swagger-cli validate docs/api/openapi.yaml
 

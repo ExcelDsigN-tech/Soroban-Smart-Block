@@ -519,7 +519,7 @@ export const db = {
     return rows[0] ?? null;
   },
 
-  Circuit breaker status tracking
+  // Circuit breaker status tracking
   async updateCircuitBreakerStatus(contractId, isPaused, ledger) {
     await pool.query(`UPDATE contracts SET is_paused = $1, pause_status_ledger = $2 WHERE id = $3`, [
       isPaused,

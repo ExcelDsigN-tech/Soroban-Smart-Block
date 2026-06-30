@@ -881,7 +881,7 @@ export const db = {
     );
   },
 
-  data export — events (CSV/JSON)
+  // data export — events (CSV/JSON)
   async getEventsForExport({ contract, fn, type, limit = 10000 } = {}) {
     const conditions = [];
     const params = [];
@@ -910,7 +910,7 @@ export const db = {
     return rows;
   },
 
-  data export — registered contracts (CSV/JSON)
+  // data export — registered contracts (CSV/JSON)
   async getContractsForExport() {
     const { rows } = await pool.query(
       `SELECT id, name, description, registered_by, has_circuit_breaker, is_paused, is_rwa, rwa_type, created_at

@@ -42,6 +42,7 @@ import { registry } from "./metrics.js";
 import pg from "pg";
 import { getBurnAlerts } from "./burnDetector.js";
 import { formatAmount } from "./formatAmount.js";
+import { getHealthStatus, getLivenessStatus, getReadinessStatus } from "./health.js";
 
 const PORT = process.env.PORT || 3001;
 const VERIFY_ON_UPLOAD = process.env.VERIFY_ABI !== "false";
@@ -217,8 +218,6 @@ export function createApi({ logDestination, dbOverride } = {}) {
   });
 
   // ── Health check endpoints ──────────────────────────────────────────────
-  // Import health check module
-  const { getHealthStatus, getLivenessStatus, getReadinessStatus } = await import("./health.js");
 
   // Comprehensive health check with dependency status
   app.get("/health", async (_req, res) => {

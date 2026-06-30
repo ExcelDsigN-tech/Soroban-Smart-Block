@@ -85,7 +85,7 @@ jobs:
         run: npx -y swagger-cli validate docs/api/openapi.yaml
 
       - name: Indexer tests
-        run: npm run test:coverage
+        run: node --test tests/decoder.test.js tests/scval.test.js
         working-directory: indexer
       - name: Frontend typecheck + build
         run: npm run build

@@ -143,7 +143,7 @@ export const db = {
       params.push(fn);
       conditions.push(`function = $${params.length}`);
     }
-    filter by transaction type
+    // filter by transaction type
     // "soroban"  → contract_id is non-empty (Soroban invocations/deployments)
     // "classic"  → contract_id is empty string or NULL
     if (type === "soroban") {

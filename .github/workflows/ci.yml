@@ -78,7 +78,7 @@ jobs:
 
       - name: Install deps
         run: |
-          cd indexer && npm install
+          cd indexer && npm ci
           cd ../frontend && npm ci
 
       - name: Lockfile drift check

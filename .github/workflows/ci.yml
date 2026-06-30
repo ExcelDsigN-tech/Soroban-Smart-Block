@@ -89,7 +89,7 @@ jobs:
           fi
 
       - name: Validate OpenAPI spec
-        run: npx -y @apidevtools/swagger-parser-cli validate docs/api/openapi.yaml
+        run: npx -y swagger-cli validate docs/api/openapi.yaml
 
       - name: Indexer tests
         run: npm test
